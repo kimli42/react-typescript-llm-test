@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useFavorites } from "../context/FavoritesContext";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import type { Joke } from "../types/joke";
 
 // Joke API URL
 // https://icanhazdadjoke.com/
 
-const Main: React.FC = () => {
+const Home: React.FC = () => {
   const [joke, setJoke] = useState<Joke | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -37,6 +37,7 @@ const Main: React.FC = () => {
 
   return (
     <section>
+      <Link to="/favorites">Go to Favorites</Link>
       <h1>Joke Generator</h1>
       <button onClick={() => fetchJoke(joke)} disabled={loading}>
         Joke Please!
@@ -50,4 +51,4 @@ const Main: React.FC = () => {
   );
 };
 
-export default Main;
+export default Home;
